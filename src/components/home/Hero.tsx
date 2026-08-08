@@ -16,14 +16,17 @@ const STATS = [
 /**
  * Full-bleed hero.
  *
- * Sizing: `min-h-svh` (small-viewport-height) rather than `vh` so mobile browser
- * chrome doesn't crop the composition. The previous fixed 640px min-height was
- * the reason this looked cramped on desktop.
+ * Colour treatment: the previous version washed the whole photograph in
+ * `brand-forest-dark`, which turned a spring magnolia into a flat green plate.
+ * The scrims here are neutral black instead, so the image keeps its own colour —
+ * the source already runs dark on the left (storm cloud, pines) and warm on the
+ * right (magnolia, sun break), so the gradients only need to deepen what's there
+ * rather than impose a tint.
  *
- * Imagery: the source photo is only 1200x850, which visibly softens when stretched
- * across a 2560px display. It's been upscaled and sharpened into a 1280/1920/2560/3200
- * responsive set — the browser picks the right one via `srcSet` so we get sharpness
- * on large screens without pushing 1.2MB at phones.
+ * Art direction: the frame is 1.73:1. Letting `object-cover` crop that down to a
+ * 390px phone viewport would leave little but the centre of the driveway, so a
+ * separate 4:5 crop centred on the house and the magnolia is served below 640px
+ * via <picture>.
  */
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -34,37 +37,51 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
 
-  // Image drifts slower than the page and dims slightly — depth without distraction.
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1.06, 1.16]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "16%"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1.05, 1.14]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-14%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
 
   return (
-    <section ref={sectionRef} className="relative isolate min-h-svh overflow-hidden bg-brand-forest-dark">
+    <section ref={sectionRef} className="relative isolate min-h-svh overflow-hidden bg-[#0b0d0c]">
       <motion.div
         className="absolute inset-0 -z-10"
         style={reduced ? undefined : { y: imageY, scale: imageScale }}
       >
-        <img
-          src="/assets/hero/hero-home-1920.webp"
-          srcSet={[
-            "/assets/hero/hero-home-1280.webp 1280w",
-            "/assets/hero/hero-home-1920.webp 1920w",
-            "/assets/hero/hero-home-2560.webp 2560w",
-            "/assets/hero/hero-home-3200.webp 3200w",
-          ].join(", ")}
-          sizes="100vw"
-          alt="A private 8888 Masters home near Augusta National, framed by a blooming magnolia in early April"
-          fetchPriority="high"
-          decoding="async"
-          className="h-full w-full object-cover object-center"
-        />
-        {/* Layered scrims: vertical for text legibility, horizontal to weight the
-            composition left where the copy sits, and a vignette to hold the edges. */}
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-forest-dark via-brand-forest-dark/60 to-brand-forest-dark/25" />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-forest-dark/85 via-brand-forest-dark/35 to-transparent" />
-        <div className="absolute inset-0 shadow-[inset_0_0_180px_60px_rgba(10,43,32,0.55)]" />
+        <picture>
+          <source
+            media="(max-width: 639px)"
+            srcSet="/assets/hero/hero-portrait-800.webp 800w, /assets/hero/hero-portrait-1200.webp 1200w"
+            sizes="100vw"
+          />
+          <img
+            src="/assets/hero/hero-1920.webp"
+            srcSet={[
+              "/assets/hero/hero-1280.webp 1280w",
+              "/assets/hero/hero-1920.webp 1920w",
+              "/assets/hero/hero-2560.webp 2560w",
+              "/assets/hero/hero-3200.webp 3200w",
+            ].join(", ")}
+            sizes="100vw"
+            alt="A private 8888 Masters home near Augusta National, framed by a magnolia in full bloom under an early-April sky"
+            fetchPriority="high"
+            decoding="async"
+            className="h-full w-full object-cover object-center"
+          />
+        </picture>
+
+        {/*
+          Four neutral layers, each doing one job:
+          1. Left wedge — carries the headline and body copy.
+          2. Bottom lift — carries the stat band.
+          3. Top scrim — hands the header legible contrast before it goes frosted.
+          4. Warm bloom — a low-opacity amber wash that keeps the magnolia's warmth
+             from being flattened by layers 1-3.
+        */}
+        <div className="absolute inset-0 bg-linear-to-r from-black/85 via-black/45 via-55% to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/20 via-45% to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-linear-to-b from-black/45 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(60%_55%_at_82%_38%,rgba(200,163,77,0.16),transparent_70%)]" />
       </motion.div>
 
       <motion.div
@@ -82,7 +99,7 @@ export function Hero() {
             24 private homes · Augusta, Georgia
           </motion.p>
 
-          <h1 className="mt-6 font-display text-[clamp(2.75rem,7vw,5.5rem)] leading-[1.02] tracking-[-0.02em] text-brand-cream">
+          <h1 className="mt-6 font-display text-[clamp(2.75rem,7vw,5.5rem)] leading-[1.02] tracking-[-0.02em] text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.45)]">
             <MaskedLines
               animate
               delay={0.35}
@@ -99,7 +116,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: EASE, delay: 0.75 }}
-            className="mt-7 max-w-xl text-base leading-relaxed text-brand-cream/80 sm:text-lg"
+            className="mt-7 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg"
           >
             A single curated portfolio of homes near Augusta National — booked direct, hosted in
             person, with access and proximity no marketplace can offer. Masters week, Ironman, ANWA,
@@ -115,7 +132,7 @@ export function Hero() {
             <Magnetic>
               <Link
                 to="/portfolio"
-                className="group relative flex items-center gap-2 overflow-hidden rounded-full bg-brand-gold px-8 py-4 text-sm font-semibold text-brand-forest-dark"
+                className="group relative flex items-center gap-2 overflow-hidden rounded-full bg-brand-gold px-8 py-4 text-sm font-semibold text-brand-forest-dark shadow-lg shadow-black/25"
               >
                 <span className="relative z-10">Browse the portfolio</span>
                 <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -125,7 +142,7 @@ export function Hero() {
 
             <Link
               to="/inquire"
-              className="group flex items-center gap-2 rounded-full border border-brand-cream/25 px-8 py-4 text-sm font-semibold text-brand-cream backdrop-blur-sm transition-colors duration-300 hover:border-brand-cream/50 hover:bg-brand-cream/10"
+              className="group flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-md transition-colors duration-300 hover:border-white/50 hover:bg-white/15"
             >
               Request availability
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -137,7 +154,7 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           variants={{ visible: { transition: { staggerChildren: 0.09, delayChildren: 1.05 } } }}
-          className="mt-14 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-brand-cream/15 pt-9 sm:grid-cols-4"
+          className="mt-14 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-white/15 pt-9 sm:grid-cols-4"
         >
           {STATS.map((stat) => (
             <motion.div
@@ -147,27 +164,25 @@ export function Hero() {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
               }}
             >
-              <dd className="font-display text-3xl text-brand-cream sm:text-4xl">
+              <dd className="font-display text-3xl text-white sm:text-4xl">
                 <Counter to={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
               </dd>
-              <dt className="mt-1.5 text-xs tracking-wide text-brand-cream/55">{stat.label}</dt>
+              <dt className="mt-1.5 text-xs tracking-wide text-white/55">{stat.label}</dt>
             </motion.div>
           ))}
         </motion.dl>
       </motion.div>
 
-      {/* Scroll cue — a vertical rail on the right edge. Kept off the bottom so it
-          never collides with the stat band. */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6, duration: 0.8 }}
         className="pointer-events-none absolute top-1/2 right-6 hidden -translate-y-1/2 flex-col items-center gap-4 xl:flex"
       >
-        <span className="text-[10px] tracking-[0.3em] text-brand-cream/40 uppercase [writing-mode:vertical-rl]">
+        <span className="text-[10px] tracking-[0.3em] text-white/45 uppercase [writing-mode:vertical-rl]">
           Scroll
         </span>
-        <span className="relative h-16 w-px overflow-hidden bg-brand-cream/15">
+        <span className="relative h-16 w-px overflow-hidden bg-white/20">
           <motion.span
             className="absolute inset-x-0 top-0 h-6 bg-brand-gold"
             animate={{ y: ["-100%", "360%"] }}
@@ -175,7 +190,6 @@ export function Hero() {
           />
         </span>
       </motion.div>
-
     </section>
   );
 }

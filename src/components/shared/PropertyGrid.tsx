@@ -5,15 +5,7 @@ import { useProperties } from "@/hooks/useProperties";
 import { PropertyCard } from "@/components/shared/PropertyCard";
 import { Stagger, StaggerItem } from "@/components/shared/Motion";
 
-/**
- * Renders the live property grid.
- *
- * The three non-happy states below are deliberately distinct. Previously an
- * unreachable API and an empty database both bottomed out in the same quiet
- * "no homes match" line, which made a backend/seed problem look like a design
- * decision. Now each failure mode says what actually happened — and in dev,
- * what to run to fix it.
- */
+
 export function PropertyGrid({
   filters = {},
   emptyMessage,

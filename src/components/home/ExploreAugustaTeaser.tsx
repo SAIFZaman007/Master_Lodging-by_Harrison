@@ -12,7 +12,7 @@ export function ExploreAugustaTeaser() {
   return (
     <section className="relative overflow-hidden bg-brand-forest py-20 text-brand-cream">
       <div className="absolute inset-0 opacity-20">
-        <img src="/assets/hero/hero-home.webp" alt="" className="h-full w-full object-cover" />
+        <img src="/assets/hero/hero-1920.webp" alt="" className="h-full w-full object-cover" />
       </div>
       <div className="container-page relative">
         <p className="eyebrow">Explore Augusta</p>

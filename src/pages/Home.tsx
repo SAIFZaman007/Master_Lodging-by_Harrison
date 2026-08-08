@@ -66,7 +66,7 @@ export function Home() {
         title="8888 Masters — Private Augusta Golf Vacation Rentals Near Augusta National"
         description="A private portfolio of 24 luxury homes near Augusta National — booked direct, hosted in person. Masters week, ANWA, Ironman, Peach Jam, weddings, and year-round stays."
         path="/"
-        image="/assets/hero/hero-home-1920.webp"
+        image="/assets/hero/hero-1920.webp"
         jsonLd={HOME_JSON_LD}
       />
       <Hero />
