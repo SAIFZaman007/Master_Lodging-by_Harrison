@@ -10,7 +10,7 @@ import type { EventWeekSlug } from "@/api/types";
 const inquirySchema = z.object({
   name: z.string().min(2, "Please enter your name"),
   company: z.string().optional(),
-  email: z.email("Enter a valid email"),
+  email: z.string().email("Enter a valid email"),
   phone: z.string().optional(),
   group_size: z.coerce.number().int().positive().optional(),
   event_week: z.string().optional(),
