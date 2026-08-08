@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a2b20" />
+    <link rel="icon" type="image/png" href="/assets/logo/logo.png" />
+
+    <title>8888 Masters — Private Augusta Golf Vacation Rentals Near Augusta National</title>
+    <meta
+      name="description"
+      content="A private portfolio of 24 luxury homes near Augusta National — booked direct, hosted in person. Masters week, ANWA, Ironman Augusta, Peach Jam, weddings, and year-round stays."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://8888masters.com/" />
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="8888 Masters" />
+    <meta property="og:title" content="8888 Masters — Private Augusta Golf Vacation Rentals" />
+    <meta
+      property="og:description"
+      content="A single curated portfolio of homes near Augusta National — booked direct, hosted in person, with access and proximity no marketplace can offer."
+    />
+    <meta property="og:image" content="/assets/hero/hero-home-1920.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--
+      The hero image is the Largest Contentful Paint element on the homepage.
+      Preloading it with the same `imagesrcset`/`imagesizes` the <img> uses lets the
+      browser start fetching the correct variant before React has even mounted.
+    -->
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/hero/hero-home-1920.webp"
+      imagesrcset="/assets/hero/hero-home-1280.webp 1280w, /assets/hero/hero-home-1920.webp 1920w, /assets/hero/hero-home-2560.webp 2560w, /assets/hero/hero-home-3200.webp 3200w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
+
+    <!-- Structured data (schema.org) — see src/pages/*.tsx for the per-route source
+         of truth; this static copy is the pre-hydration fallback for crawlers. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": ["LodgingBusiness", "LocalBusiness"],
+        "name": "8888 Masters",
+        "description": "A private portfolio of luxury homes near Augusta National in Augusta, Georgia. Full-service hosting for Masters Tournament week, ANWA, Ironman Augusta, Peach Jam, corporate hospitality, and year-round stays.",
+        "url": "https://8888masters.com",
+        "telephone": "+16024788888",
+        "email": "chris_stocks@yahoo.com",
+        "slogan": "The Augusta Operator",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Augusta",
+          "addressRegion": "GA",
+          "addressCountry": "US"
+        },
+        "priceRange": "$$$$"
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
