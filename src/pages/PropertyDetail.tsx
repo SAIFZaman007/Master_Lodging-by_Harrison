@@ -33,7 +33,7 @@ export function PropertyDetail() {
   return (
     <>
       <Seo
-        title={`${property.address} — ${property.title} | 8888 Masters`}
+        title={`${property.address} — ${property.title} | 8888 Augusta`}
         description={`${property.bedrooms} bed / ${property.baths} bath home for up to ${property.guests} guests near Augusta National. ${property.miles_to_angc ? `${property.miles_to_angc} miles to Augusta National.` : ""}`}
         path={`/homes/${property.slug}`}
         image={heroSrc}

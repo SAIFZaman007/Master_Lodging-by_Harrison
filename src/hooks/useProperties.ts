@@ -44,10 +44,10 @@ export function useSiteInfo() {
     staleTime: 60 * 60 * 1000,
     // Sensible fallback so the footer/contact links render even before the first fetch resolves.
     placeholderData: {
-      business_name: "8888 Masters",
+      business_name: "8888 Augusta",
       phone: "+16024788888",
       email: "chris_stocks@yahoo.com",
-      site_url: "https://8888masters.com",
+      site_url: "https://8888augusta.com",
     },
   });
 }

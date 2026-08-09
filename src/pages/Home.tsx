@@ -12,10 +12,10 @@ const HOME_JSON_LD = [
   {
     "@context": "https://schema.org",
     "@type": ["LodgingBusiness", "LocalBusiness"],
-    name: "8888 Masters",
+    name: "8888 Augusta",
     description:
       "A private portfolio of 24 luxury homes near Augusta National in Augusta, Georgia. Full-service hosting for Masters Tournament week, ANWA, Ironman Augusta, Peach Jam, corporate hospitality, and year-round stays.",
-    url: "https://8888masters.com",
+    url: "https://8888augusta.com",
     telephone: "+16024788888",
     email: "chris_stocks@yahoo.com",
     slogan: "The Augusta Operator",
@@ -33,18 +33,18 @@ const HOME_JSON_LD = [
     mainEntity: [
       {
         "@type": "Question",
-        name: "How is 8888 Masters different from booking on Airbnb or VRBO?",
+        name: "How is 8888 Augusta different from booking on Airbnb or VRBO?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "8888 Masters is a single-operator portfolio, not a marketplace. Every home is hosted directly by the same person — no anonymous listings, no third-party call center — so guests get real proximity guidance, vetted access, and full concierge support.",
+          text: "8888 Augusta is a single-operator portfolio, not a marketplace. Every home is hosted directly by the same person — no anonymous listings, no third-party call center — so guests get real proximity guidance, vetted access, and full concierge support.",
         },
       },
       {
         "@type": "Question",
-        name: "What events does 8888 Masters host for?",
+        name: "What events does 8888 Augusta host for?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Masters Tournament week, the Augusta National Women's Amateur (ANWA), Ironman 70.3 Augusta, Nike EYBL Peach Jam, private events like weddings and corporate retreats, and year-round stays including student housing near Augusta University.",
+          text: "Masters Tournament week, the Augusta National Women's Amateur (ANWA), Ironman 70.3 Augusta, Nike EYBL Peach Jam, private events like weddings and corporate retreats, and year-round stays across the portfolio.",
         },
       },
       {
@@ -63,7 +63,7 @@ export function Home() {
   return (
     <>
       <Seo
-        title="8888 Masters — Private Augusta Golf Vacation Rentals Near Augusta National"
+        title="8888 Augusta — Private Augusta Golf Vacation Rentals Near Augusta National"
         description="A private portfolio of 24 luxury homes near Augusta National — booked direct, hosted in person. Masters week, ANWA, Ironman, Peach Jam, weddings, and year-round stays."
         path="/"
         image="/assets/hero/hero-1920.webp"

@@ -90,7 +90,7 @@ export function Header() {
             </span>
             <span className="flex flex-col leading-none">
               <span className="font-display text-[17px] tracking-tight text-brand-cream drop-shadow-sm">
-                8888 Masters
+                8888 Augusta
               </span>
               <span className="mt-1 text-[9px] tracking-[0.26em] text-brand-gold/90 uppercase">
                 The Augusta Operator

@@ -13,7 +13,7 @@ export function HowItWorks() {
   return (
     <>
       <Seo
-        title="How It Works — Booking Direct with 8888 Masters"
+        title="How It Works — Booking Direct with 8888 Augusta"
         description="A simple, four-step process for booking a private Augusta home direct with the operator: inquire, fit, confirm, arrive."
         path="/how-it-works"
       />

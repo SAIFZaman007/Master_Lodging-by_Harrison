@@ -26,7 +26,6 @@ const EVENT_OPTIONS: { value: EventWeekSlug; label: string }[] = [
   { value: "ironman", label: "Ironman 70.3" },
   { value: "peach-jam", label: "Peach Jam" },
   { value: "private-event", label: "Wedding / private event" },
-  { value: "student-living", label: "Student living (year-round lease)" },
   { value: "other", label: "Year-round stay" },
 ];
 

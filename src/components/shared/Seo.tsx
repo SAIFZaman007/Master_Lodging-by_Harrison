@@ -12,7 +12,7 @@ interface SeoProps {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const SITE_URL = "https://8888masters.com";
+const SITE_URL = "https://8888augusta.com";
 
 export function Seo({ title, description, path, image, jsonLd }: SeoProps) {
   const url = `${SITE_URL}${path}`;

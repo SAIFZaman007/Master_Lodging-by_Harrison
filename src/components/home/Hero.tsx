@@ -63,7 +63,7 @@ export function Hero() {
               "/assets/hero/hero-3200.webp 3200w",
             ].join(", ")}
             sizes="100vw"
-            alt="A private 8888 Masters home near Augusta National, framed by a magnolia in full bloom under an early-April sky"
+            alt="A private 8888 Augusta home near Augusta National, framed by a magnolia in full bloom under an early-April sky"
             fetchPriority="high"
             decoding="async"
             className="h-full w-full object-cover object-center"

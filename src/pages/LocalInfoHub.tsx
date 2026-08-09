@@ -8,13 +8,13 @@ export function LocalInfoHub() {
   return (
     <>
       <Seo
-        title="Local Info — Where to Eat, Play, and Get Around Augusta | 8888 Masters"
+        title="Local Info — Where to Eat, Play, and Get Around Augusta | 8888 Augusta"
         description="Local info from a private host who actually lives here. Restaurants, tee times, transportation, catering, and more — curated picks, refreshed every event week."
         path="/local-info"
       />
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/assets/galleries/2402-wilkshire-dr/01-1400.webp" alt="" className="h-full w-full object-cover" />
+          <img src="/assets/local-info/hero.webp" alt="" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-brand-forest-dark/80" />
         </div>
         <div className="container-page relative py-24">

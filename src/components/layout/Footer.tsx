@@ -17,8 +17,7 @@ const EVENTS = [
   { to: "/events/anwa", label: "ANWA" },
   { to: "/events/ironman", label: "Ironman 70.3" },
   { to: "/events/peach-jam", label: "Peach Jam" },
-  { to: "/events/private-event", label: "Weddings & Events" },
-  { to: "/events/student-living", label: "Student Living" },
+  { to: "/events/private-event", label: "Weddings & Private Events" },
 ];
 
 export function Footer() {
@@ -62,7 +61,7 @@ export function Footer() {
               className="h-10 w-10 rounded-full ring-1 ring-brand-gold/30"
             />
             <span className="flex flex-col leading-none">
-              <span className="font-display text-lg text-brand-cream">8888 Masters</span>
+              <span className="font-display text-lg text-brand-cream">8888 Augusta</span>
               <span className="mt-1 text-[9px] tracking-[0.26em] text-brand-gold/90 uppercase">
                 The Augusta Operator
               </span>
@@ -140,7 +139,7 @@ export function Footer() {
 
       <div className="border-t border-brand-cream/10">
         <div className="container-page flex flex-col gap-4 py-7 text-xs text-brand-cream/45 lg:flex-row lg:items-center lg:justify-between">
-          <p>&copy; {year} 8888 Masters. All rights reserved.</p>
+          <p>&copy; {year} 8888 Augusta. All rights reserved.</p>
           <p className="max-w-2xl lg:text-right">
             Independent lodging portfolio. Not affiliated with or endorsed by Augusta National Golf
             Club or the Masters Tournament.{" "}

@@ -5,7 +5,7 @@ export function Inquire() {
   return (
     <>
       <Seo
-        title="Request Availability — 8888 Masters"
+        title="Request Availability — 8888 Augusta"
         description="Request availability for a private Augusta home — Masters week, ANWA, Ironman, Peach Jam, private events, or a year-round stay. We reply directly."
         path="/inquire"
       />

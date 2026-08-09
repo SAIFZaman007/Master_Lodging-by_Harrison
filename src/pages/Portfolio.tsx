@@ -17,7 +17,7 @@ export function Portfolio() {
   return (
     <>
       <Seo
-        title="The Augusta Portfolio — 24 Private Homes | 8888 Masters"
+        title="The Augusta Portfolio — 24 Private Homes | 8888 Augusta"
         description="Browse all 24 private Augusta homes — filter by walking-distance cluster, large-group capacity, or signature listings. Booked direct, hosted in person."
         path="/portfolio"
       />

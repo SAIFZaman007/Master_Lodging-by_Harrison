@@ -14,9 +14,9 @@ import { Reveal } from "@/components/shared/Motion";
  * counter-scroll so the group feels composed rather than pasted down.
  */
 const PHOTOS = [
-  { src: "/assets/chris/07-img_a7ec42d2f6e3.webp", alt: "Chris with a guest group at Augusta National" },
-  { src: "/assets/chris/16-img_d479541345c0.webp", alt: "One of the 8888 Masters homes during tournament week" },
-  { src: "/assets/chris/20-img_a95be4f831e4.webp", alt: "Chris hosting guests during Masters week" },
+  { src: "/assets/chris/18-img_4f4aae5203ea.jpg", alt: "Chris with a guest group at Augusta National" },
+  { src: "/assets/chris/16-img_d479541345c0.webp", alt: "One of the 8888 Augusta homes during tournament week" },
+  { src: "/assets/chris/07-img_a7ec42d2f6e3.webp", alt: "Chris hosting guests during Masters week" },
 ];
 
 export function HostBio() {
@@ -89,7 +89,7 @@ export function HostBio() {
 
           <div className="mt-6 space-y-4 leading-relaxed text-brand-ink/70">
             <p>
-              8888 Masters is built on Chris's portfolio of Augusta homes and a decade of hosting
+              8888 Augusta is built on Chris's portfolio of Augusta homes and a decade of hosting
               Masters-week guests — sponsors, families, executives, member guests, and repeat
               patrons. We're not a marketplace. We're the operator.
             </p>
@@ -100,7 +100,7 @@ export function HostBio() {
           </div>
 
           <p className="mt-8 border-l-2 border-brand-gold/50 pl-5 text-sm leading-relaxed text-brand-ink/45">
-            Photos used with permission. 8888 Masters is an independent lodging portfolio and is not
+            Photos used with permission. 8888 Augusta is an independent lodging portfolio and is not
             affiliated with or endorsed by Augusta National Golf Club or the Masters Tournament.
           </p>
         </Reveal>

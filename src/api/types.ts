@@ -47,7 +47,6 @@ export type EventWeekSlug =
   | "ironman"
   | "peach-jam"
   | "private-event"
-  | "student-living"
   | "other";
 
 export interface InquiryPayload {
